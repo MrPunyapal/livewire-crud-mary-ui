@@ -36,6 +36,16 @@
         }
     },
     "scripts": {
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "composer install",
+            "php artisan key:generate",
+            "php artisan cache:clear",
+            "php artisan migrate:fresh --seed",
+            "rm -rf public/build",
+            "npm install",
+            "npm run dev"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
