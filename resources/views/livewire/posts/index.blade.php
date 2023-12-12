@@ -25,7 +25,7 @@ new class extends Component {
             ->when($this->search, fn(Builder $q) => $q->where('title', 'like', "%$this->search%"))
             ->when($this->state == 'published', fn(Builder $q) => $q->published())
             ->orderBy('title')
-            ->paginate(10);
+            ->simplePaginate(10);
     }
 
     public function delete(Post $post): void
@@ -82,6 +82,6 @@ new class extends Component {
                 </div>
             @endscope
         </x-table>
-        {{ $posts->links() }}
+        {{ $posts->links(data: ['scrollTo' => false]) }}
     </x-card>
 </div>
