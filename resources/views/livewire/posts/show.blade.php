@@ -30,8 +30,8 @@ new class extends Component {
 
 <div>
     {{--    IMAGE --}}
-    <div class="rounded-lg mb-8 bg-base-300 h-[227px]">
-        <img src="{{ $post->image }}" class="rounded-lg" />
+    <div class="h-64 h-[227px] mb-8 rounded-lg bg-base-300">
+        <img src="{{ $post->image }}" class="object-cover h-full w-full rounded-lg" />
     </div>
 
     <x-header :title="$post->title" subtitle="Created at {{ $post->created_at }}" separator />
@@ -62,7 +62,7 @@ new class extends Component {
     </div>
 
     {{-- BODY --}}
-    <div class="mt-5">
+    <div class="mt-5 leading-7">
         {!! $post->body !!}
     </div>
 
