@@ -15,8 +15,8 @@ services:
         volumes:
             - ../:/var/www/app:cached
         ports:
-            - "8282:8080"
-            - "5252:5252"
+            - "8216:8080"
+            - "5216:5216"
 
     ######## MYSQL ########
     livewire-crud-mysql:

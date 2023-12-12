@@ -72,8 +72,7 @@ php artisan serve
 
 - Visit [http://localhost:8000](http://localhost:8000) in your browser
 
-
-### Installation with Docker (Bônus)
+### Installation with Docker (Bonus)
 
 Duplicate the `.env.example` file and rename it to `.env`.
 
@@ -82,6 +81,7 @@ cp .env.example .env
 ```
 
 Change the DB host on `.env` file.
+
 ```bash
 DB_HOST=livewire-crud-mysql
 ```
@@ -92,6 +92,7 @@ Enter into `.docker/` and start containers.
 # Wait until you see PHP-FPM / MySQL success messages.
 docker compose up 
 ```
+
 In another terminal, also in `.docker/` folder, enter into docker container.
 
 ```bash
@@ -105,7 +106,8 @@ Now, inside that container terminal migrate, seed, install dependencies and star
 
 composer start
 ```
-**Done!** See http://localhost:8282
+
+**Done!** See http://localhost:8216
 
 ## Test
 

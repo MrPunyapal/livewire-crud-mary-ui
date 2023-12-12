@@ -2,61 +2,32 @@
 
 namespace App\Models;
 
-use App\Enums\FeaturedStatus;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Mews\Purifier\Casts\CleanHtmlInput;
 
 class Post extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
-        'title',
-        'slug',
-        'description',
-        'image',
-        'body',
-        'published_at',
-        'category',
-        'tags',
-        'is_featured',
-    ];
-
-    // protected $guarded=[
-    //     'id',
-    //     'created_at',
-    //     'updated_at',
-    //     'deleted_at'
-    // ];
+    protected $guarded = ['id'];
 
     protected $casts = [
-        'tags' => 'array',
-        'published_at' => 'datetime',
-        'is_featured' => FeaturedStatus::class,
-        'body' => CleanHtmlInput::class,
+        'published_at' => 'datetime:Y-m-d',
     ];
 
-    public function image(): Attribute
+    public function category(): BelongsTo
     {
-        return Attribute::make(
-            get: fn (string $value) => filter_var($value, FILTER_VALIDATE_URL) ? $value : asset('storage/'.$value),
-            set: fn ($value): string => filter_var($value, FILTER_VALIDATE_URL) ? $value : $value->store('posts', 'public')
-        );
+        return $this->belongsTo(Category::class);
     }
 
-    public function scopeSortBy($query, ?string $sortBy, ?string $direction): Builder
+    public function tags(): BelongsToMany
     {
-        if (is_null($sortBy)) {
-            return $query->latest();
-        }
-
-        $direction ??= 'asc';
-
-        return $query->orderBy($sortBy, $direction);
+        return $this->belongsToMany(Tag::class);
     }
 
     public function scopePublished($query): Builder
@@ -64,10 +35,11 @@ class Post extends Model
         return $query->where('published_at', '<=', now());
     }
 
-    public function scopeSearch(Builder $query, ?string $search)
+    public function image(): Attribute
     {
-        $query->when($search, function (Builder $query, ?string $search) {
-            $query->where('title', 'like', '%'.$search.'%');
-        });
+        return Attribute::make(
+            get: fn(string $value) => filter_var($value, FILTER_VALIDATE_URL) ? $value : asset('storage/' . $value),
+            set: fn($value): string => filter_var($value, FILTER_VALIDATE_URL) ? $value : $value->store('posts', 'public')
+        );
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Livewire\Volt\Volt;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', fn() => redirect('/posts'));
+
+// TODO: resourceful routes?
+Volt::route('/posts', 'posts.index');
+Volt::route('/posts/create', 'posts.create');
+Volt::route('/posts/{post}/edit', 'posts.edit');
+Volt::route('/posts/{post}', 'posts.show');
+

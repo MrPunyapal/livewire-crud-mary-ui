@@ -2,7 +2,11 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "livewire","Crud"],
+    "keywords": [
+        "laravel",
+        "livewire",
+        "Crud"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -10,8 +14,10 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^3.2",
-        "mews/purifier": "^3.4"
+        "livewire/livewire": "3.2.6",
+        "livewire/volt": "^1.6",
+        "mews/purifier": "^3.4",
+        "robsontenorio/mary": "dev-choices-offline"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -42,6 +48,7 @@
             "php artisan key:generate",
             "php artisan cache:clear",
             "php artisan migrate:fresh --seed",
+            "php artisan storage:link",
             "rm -rf public/build",
             "npm install",
             "npm run dev"

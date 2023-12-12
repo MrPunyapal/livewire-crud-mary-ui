@@ -3,10 +3,13 @@
 namespace Database\Factories;
 
 use App\Enums\FeaturedStatus;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ * @extends Factory<Post>
  */
 class PostFactory extends Factory
 {
@@ -17,17 +20,23 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-
         return [
+            'category_id' => Category::inRandomOrder()->first()->id,
             'title' => $this->faker->words(5, true),
             'slug' => $this->faker->slug,
             'description' => $this->faker->sentence,
-            'image' => $this->faker->imageUrl(),
-            'body' => $this->faker->randomHtml(),
+            'image' => 'https://picsum.photos/1800/300?x=' . rand(),
+            'body' => $this->faker->text(1600),
             'published_at' => $this->faker->dateTimeBetween('-1 month', '+3 months'),
-            'category' => $this->faker->numberBetween(0, 7),
-            'tags' => $this->faker->randomElements(['Eloquent', 'Blade', 'Migrations', 'Seeding', 'Routing', 'Controllers', 'Middleware', 'Requests', 'Responses', 'Views', 'Forms', 'Validation', 'Mail', 'Notifications'], $this->faker->numberBetween(1, 3)),
             'is_featured' => $this->faker->randomElement(array_column(FeaturedStatus::cases(), 'value')),
         ];
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(function (Post $post) {
+            $tags = Tag::inRandomOrder()->take(rand(1, 4))->get();
+            $post->tags()->attach($tags);
+        });
     }
 }
