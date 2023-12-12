@@ -29,7 +29,7 @@ new class extends Component {
 }; ?>
 
 <div>
-    {{--    IMAGE --}}
+    {{--  IMAGE --}}
     <div class="h-64 h-[227px] mb-8 rounded-lg bg-base-300">
         <img src="{{ $post->image }}" class="object-cover h-full w-full rounded-lg" />
     </div>

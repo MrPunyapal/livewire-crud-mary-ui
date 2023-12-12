@@ -89,11 +89,13 @@ new class extends Component {
             <x-choices-offline label="Tags" wire:model="tags" :options="$allTags" multiple searchable />
             <x-file label="Cover image" wire:model="coverImage" />
 
-            @if ($coverImage)
-                <img src="{{ $coverImage->temporaryUrl() }}" class="rounded-lg">
-            @else
-                <img src="{{ $post->image }}" class="rounded-lg">
-            @endif
+            <div class="h-64 h-[227px] mb-8 rounded-lg border border-dashed border-black">
+                @if ($coverImage)
+                    <img src="{{ $coverImage->temporaryUrl() }}" class="object-cover h-full w-full rounded-lg">
+                @else
+                    <img src="{{ $post->image }}" class="object-cover h-full w-full rounded-lg"">
+                @endif
+            </div>
 
             <x-radio label="Featured" wire:model="is_featured" :options="$featured" />
             <x-textarea label="Body" id="post-body" wire:model="body" rows="8" />
