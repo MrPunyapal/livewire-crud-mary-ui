@@ -82,7 +82,7 @@ new class extends Component {
             <x-file label="Cover image" wire:model="image" />
 
             @if ($image)
-                <div class="h-64 h-[227px] mb-8 rounded-lg border border-dashed border-black">
+                <div class="h-64 mb-8 rounded-lg border border-dashed border-black">
                     <img src="{{ $image->temporaryUrl() }}" class="object-cover h-full w-full rounded-lg">
                 </div>
             @endif
