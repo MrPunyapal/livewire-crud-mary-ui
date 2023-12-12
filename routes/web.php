@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\Route;
 use Livewire\Volt\Volt;
 
 /*
@@ -13,7 +14,7 @@ use Livewire\Volt\Volt;
 |
 */
 
-Route::get('/', fn () => redirect('/posts'));
+Route::redirect('/', '/posts');
 
 // TODO: resourceful routes?
 Volt::route('/posts', 'posts.index');
