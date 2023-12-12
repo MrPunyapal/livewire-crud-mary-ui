@@ -18,28 +18,28 @@ class CategorySeeder extends Seeder
 
         Category::insert([
             [
-                'name' => 'Laravel'
+                'name' => 'Laravel',
             ],
             [
-                'name' => 'PHP'
+                'name' => 'PHP',
             ],
             [
-                'name' => 'JavaScript'
+                'name' => 'JavaScript',
             ],
             [
-                'name' => 'Vue.js'
+                'name' => 'Vue.js',
             ],
             [
-                'name' => 'React.js'
+                'name' => 'React.js',
             ],
             [
-                'name' => 'Angular.js'
+                'name' => 'Angular.js',
             ],
             [
-                'name' => 'Java'
+                'name' => 'Java',
             ],
             [
-                'name' => 'C#'
+                'name' => 'C#',
             ],
         ]);
     }

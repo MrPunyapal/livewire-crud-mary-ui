@@ -18,45 +18,45 @@ class TagSeeder extends Seeder
 
         Tag::insert([
             [
-                'name' => 'Eloquent'
+                'name' => 'Eloquent',
             ],
             [
-                'name' => 'Blade'
+                'name' => 'Blade',
             ],
             [
-                'name' => 'Migrations'
+                'name' => 'Migrations',
             ],
             [
-                'name' => 'Seeding'
+                'name' => 'Seeding',
             ],
             [
-                'name' => 'Routing'
+                'name' => 'Routing',
             ],
             [
-                'name' => 'Controllers'
+                'name' => 'Controllers',
             ], [
-                'name' => 'Middleware'
+                'name' => 'Middleware',
             ],
             [
-                'name' => 'Requests'
+                'name' => 'Requests',
             ],
             [
-                'name' => 'Responses'
+                'name' => 'Responses',
             ],
             [
-                'name' => 'Views'
+                'name' => 'Views',
             ],
             [
-                'name' => 'Forms'
+                'name' => 'Forms',
             ],
             [
-                'name' => 'Validation'
+                'name' => 'Validation',
             ],
             [
-                'name' => 'Mail'
+                'name' => 'Mail',
             ],
             [
-                'name' => 'Notifications'
+                'name' => 'Notifications',
             ],
 
         ]);

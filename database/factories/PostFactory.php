@@ -25,7 +25,7 @@ class PostFactory extends Factory
             'title' => $this->faker->words(5, true),
             'slug' => $this->faker->slug,
             'description' => $this->faker->sentence,
-            'image' => 'https://picsum.photos/1800/300?x=' . rand(),
+            'image' => 'https://picsum.photos/1800/300?x='.rand(),
             'body' => $this->faker->text(1600),
             'published_at' => $this->faker->dateTimeBetween('-1 month', '+3 months'),
             'is_featured' => $this->faker->randomElement(array_column(FeaturedStatus::cases(), 'value')),
