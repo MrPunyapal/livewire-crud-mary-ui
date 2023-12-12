@@ -1,0 +1,32 @@
+version: "3.9"
+
+volumes:
+    livewire-crud-mysql-volume:
+
+services:
+    ######## APP ########
+    livewire-crud-app:
+        build:
+            context: ..
+            dockerfile: .docker/Dockerfile
+            target: local
+        environment:
+            - CONTAINER_ROLE=APP
+        volumes:
+            - ../:/var/www/app:cached
+        ports:
+            - "8216:8080"
+            - "5216:5216"
+
+    ######## MYSQL ########
+    livewire-crud-mysql:
+        image: mysql:8.2.0
+        environment:
+            - MYSQL_DATABASE=livewire_crud
+            - MYSQL_USER=crud
+            - MYSQL_PASSWORD=crud
+            - MYSQL_ROOT_PASSWORD=crud
+        volumes:
+            - livewire-crud-mysql-volume:/var/lib/mysql
+        ports:
+            - 3306:3306

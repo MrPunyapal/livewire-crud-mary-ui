@@ -15,12 +15,11 @@ enum FeaturedStatus: int
         };
     }
 
-    // public function bg_color():string
-    // {
-    //     return match ($this) {
-    //         self::NOT_FEATURED => 'bg-info',
-    //         self::FEATURED => 'bg-success',
-    //     };
-    // }
-
+    public function color(): string
+    {
+        return match ($this) {
+            self::NOT_FEATURED => 'badge-error',
+            self::FEATURED => 'badge-success',
+        };
+    }
 }
