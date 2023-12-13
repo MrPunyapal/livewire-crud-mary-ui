@@ -18,18 +18,22 @@ new class extends Component {
     #[Url]
     public string $state = 'all';
 
+    // Reset table pagination only if these properties has changed
+    public function updated($property)
+    {
+        if (in_array($property, ['search', 'state'])) {
+            $this->resetPage();
+        }
+    }
+
     public function posts(): mixed
     {
-        $posts = Post::query()
+        return Post::query()
             ->with(['category'])
             ->when($this->search, fn(Builder $q) => $q->where('title', 'like', "%$this->search%"))
             ->when($this->state == 'published', fn(Builder $q) => $q->published())
             ->orderBy('title')
             ->paginate(10);
-
-        $this->resetPage();
-
-        return $posts;
     }
 
     public function delete(Post $post): void
