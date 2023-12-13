@@ -20,12 +20,16 @@ new class extends Component {
 
     public function posts(): mixed
     {
-        return Post::query()
+        $posts = Post::query()
             ->with(['category'])
             ->when($this->search, fn(Builder $q) => $q->where('title', 'like', "%$this->search%"))
             ->when($this->state == 'published', fn(Builder $q) => $q->published())
             ->orderBy('title')
             ->paginate(10);
+
+        $this->resetPage();
+
+        return $posts;
     }
 
     public function delete(Post $post): void
