@@ -1,5 +1,8 @@
 # Crud Example of livewire best practices (TALL Stack)
 
+<img width="557" alt="crud" src="https://github.com/mr-punyapal/livewire-crud/assets/53343069/8575bc7c-6a6a-48b3-ade7-4df91cfada78">
+
+
 ## Installation
 
 - Clone the repo
