@@ -18,6 +18,14 @@ new class extends Component {
     #[Url]
     public string $state = 'all';
 
+    // Reset table pagination only if these properties has changed
+    public function updated($property)
+    {
+        if (in_array($property, ['search', 'state'])) {
+            $this->resetPage();
+        }
+    }
+
     public function posts(): mixed
     {
         return Post::query()
