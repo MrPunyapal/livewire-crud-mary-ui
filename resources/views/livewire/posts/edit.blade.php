@@ -38,7 +38,7 @@ new class extends Component {
     #[Rule('required')]
     public array $tags;
 
-    #[Rule('image|max:1024')]
+    #[Rule('sometimes|nullable|image|max:1024')]
     public $coverImage;
 
     public function mount(): void
@@ -60,8 +60,11 @@ new class extends Component {
     {
         $this->post->update($this->validate());
         $this->post->tags()->sync($this->tags);
-        $url = $this->coverImage->store('posts', 'public');
-        $this->post->update(['image' => url("/storage/$url")]);
+
+        if ($this->coverImage) {
+            $url = $this->coverImage->store('posts', 'public');
+            $this->post->update(['image' => url("/storage/$url")]);
+        }
 
         $this->success('Post updated', redirectTo: "/posts/{$this->post->id}");
     }
