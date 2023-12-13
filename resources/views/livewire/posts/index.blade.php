@@ -25,7 +25,7 @@ new class extends Component {
             ->when($this->search, fn(Builder $q) => $q->where('title', 'like', "%$this->search%"))
             ->when($this->state == 'published', fn(Builder $q) => $q->published())
             ->orderBy('title')
-            ->simplePaginate(10);
+            ->paginate(10);
     }
 
     public function delete(Post $post): void
@@ -36,12 +36,22 @@ new class extends Component {
 
     public function states(): array
     {
-        return [['id' => 'all', 'name' => 'All posts'], ['id' => 'published', 'name' => 'Published']];
+        return [
+            ['id' => 'all', 'name' => 'All posts'],
+            ['id' => 'published', 'name' => 'Published']
+        ];
     }
 
     public function headers(): array
     {
-        return [['key' => 'id', 'label' => '#', 'class' => 'w-1'], ['key' => 'title', 'label' => 'Title'], ['key' => 'category.name', 'label' => 'Category'], ['key' => 'is_featured', 'label' => 'Featured'], ['key' => 'created_at', 'label' => 'Created At'], ['key' => 'updated_at', 'label' => 'Updated At']];
+        return [
+            ['key' => 'id', 'label' => '#', 'class' => 'w-1'],
+            ['key' => 'title', 'label' => 'Title'],
+            ['key' => 'category.name', 'label' => 'Category'],
+            ['key' => 'is_featured', 'label' => 'Featured'],
+            ['key' => 'created_at', 'label' => 'Created At'],
+            ['key' => 'updated_at', 'label' => 'Updated At']
+        ];
     }
 
     public function with(): array
@@ -69,19 +79,18 @@ new class extends Component {
     </x-header>
 
     <x-card>
-        <x-table :headers="$headers" :rows="$posts" link="/posts/{id}">
+        <x-table :headers="$headers" :rows="$posts" link="/posts/{id}" with-pagination>
             @scope('cell_is_featured', $post)
-                <x-badge :value="FeaturedStatus::from($post->is_featured)->label()" class="{{ FeaturedStatus::from($post->is_featured)->color() }} badge-outline" />
+            <x-badge :value="FeaturedStatus::from($post->is_featured)->label()" class="{{ FeaturedStatus::from($post->is_featured)->color() }} badge-outline" />
             @endscope
 
             @scope('actions', $post)
-                <div class="flex flex-nowrap gap-3">
-                    <x-button wire:click="delete({{ $post->id }})" wire:confirm="Are you sure?" icon="o-trash"
-                        class="btn-sm text-error" spinner />
-                    <x-button link="/posts/{{ $post->id }}/edit" icon="o-pencil" class="btn-sm" />
-                </div>
+            <div class="flex flex-nowrap gap-3">
+                <x-button wire:click="delete({{ $post->id }})" wire:confirm="Are you sure?" icon="o-trash"
+                          class="btn-sm text-error" spinner />
+                <x-button link="/posts/{{ $post->id }}/edit" icon="o-pencil" class="btn-sm" />
+            </div>
             @endscope
         </x-table>
-        {{ $posts->links(data: ['scrollTo' => false]) }}
     </x-card>
 </div>
