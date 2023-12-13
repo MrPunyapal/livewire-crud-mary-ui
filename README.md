@@ -1,5 +1,7 @@
 # Crud Example of livewire best practices (TALL Stack)
 
+<img src="public/images/crud.png" width="700">
+
 ## Installation
 
 - Clone the repo
