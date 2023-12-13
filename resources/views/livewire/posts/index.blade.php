@@ -36,7 +36,10 @@ new class extends Component {
 
     public function states(): array
     {
-        return [['id' => 'all', 'name' => 'All posts'], ['id' => 'published', 'name' => 'Published']];
+        return [
+            ['id' => 'all', 'name' => 'All posts'],
+            ['id' => 'published', 'name' => 'Published']
+        ];
     }
 
     public function headers(): array
