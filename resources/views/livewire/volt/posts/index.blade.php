@@ -87,8 +87,7 @@ new class extends Component {
     </x-header>
 
     <x-card>
-        <x-table :headers="$headers" :rows="$posts" link="{{ route('volt.posts.show',['post' =>'{id}']) }}"
-            with-pagination>
+        <x-table :headers="$headers" :rows="$posts" link="/volt/posts/{id}" with-pagination>
             @scope('cell_is_featured', $post)
             <x-badge :value="FeaturedStatus::from($post->is_featured)->label()"
                 class="{{ FeaturedStatus::from($post->is_featured)->color() }} badge-outline" />

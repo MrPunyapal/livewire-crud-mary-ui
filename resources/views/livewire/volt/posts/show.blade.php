@@ -24,12 +24,12 @@ new class extends Component {
     public function delete(Post $post): void
     {
         $post->delete();
-        $this->success('Post deleted.', redirectTo: '/posts');
+        $this->success('Post deleted.', redirectTo: route('volt.posts.index'));
     }
 }; ?>
 
 <div>
-    {{--  IMAGE --}}
+    {{-- IMAGE --}}
     <div class="h-[227px] mb-8 rounded-lg bg-base-300">
         <img src="{{ $post->image }}" class="object-cover h-full w-full rounded-lg" />
     </div>
@@ -43,21 +43,19 @@ new class extends Component {
 
             {{-- TAGS--}}
             @foreach($post->tags as $tag)
-                <x-badge :value="$tag->name" />
+            <x-badge :value="$tag->name" />
             @endforeach
         </div>
         {{-- ACTIONS --}}
         <div class="flex items-center">
-            <x-button
-                :label="$post->is_featured ? 'Featured' : 'Feature'"
-                wire:click="toggleFeature"
-                icon="o-star"
-                tooltip="Toggle featured"
-                @class(["btn-ghost btn-sm", "text-amber-500" => $post->is_featured])
+            <x-button :label="$post->is_featured ? 'Featured' : 'Feature'" wire:click="toggleFeature" icon="o-star"
+                tooltip="Toggle featured" @class(["btn-ghost btn-sm", "text-amber-500"=> $post->is_featured])
                 spinner />
 
-            <x-button label="Delete" wire:click="delete({{ $post->id }})" wire:confirm="Are you sure?" icon="o-trash" class="btn-ghost btn-sm text-error" spinner />
-            <x-button label="Edit" link="/posts/{{ $post->id }}/edit" icon="o-pencil" class="btn-ghost btn-sm" />
+                <x-button label="Delete" wire:click="delete({{ $post->id }})" wire:confirm="Are you sure?"
+                    icon="o-trash" class="btn-ghost btn-sm text-error" spinner />
+                <x-button label="Edit" link="{{route('volt.posts.edit',$post)}}" icon="o-pencil"
+                    class="btn-ghost btn-sm" />
         </div>
     </div>
 

@@ -55,7 +55,7 @@ new class extends Component {
         $url = $this->image->store('posts', 'public');
         $post->update(['image' => url("/storage/$url")]);
 
-        $this->success('Post updated', redirectTo: "/posts/{$post->id}");
+        $this->success('Post updated', redirectTo: route('volt.posts.show',$post));
     }
 
     public function with(): array
@@ -82,17 +82,18 @@ new class extends Component {
             <x-file label="Cover image" wire:model="image" />
 
             @if ($image)
-                <div class="h-64 mb-8 rounded-lg border border-dashed border-black">
-                    <img src="{{ $image->temporaryUrl() }}" class="object-cover h-full w-full rounded-lg">
-                </div>
+            <div class="h-64 mb-8 rounded-lg border border-dashed border-black">
+                <img src="{{ $image->temporaryUrl() }}" class="object-cover h-full w-full rounded-lg">
+            </div>
             @endif
 
             <x-radio label="Featured" wire:model="is_featured" :options="$featured" />
             <x-textarea label="Body" id="post-body" wire:model="body" rows="8" />
 
             <x-slot:actions>
-                <x-button label="Cancel" link="/posts" />
-                <x-button label="Create post" type="submit" icon="o-paper-airplane" class="btn-primary" spinner="save" />
+                <x-button label="Cancel" link="{{route('volt.posts.index')}}" />
+                <x-button label="Create post" type="submit" icon="o-paper-airplane" class="btn-primary"
+                    spinner="save" />
             </x-slot:actions>
         </x-form>
         <div>
