@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Livewire\Posts;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,9 @@ use Livewire\Volt\Volt;
 
 Route::redirect('/', '/posts');
 
-// TODO: resourceful routes?
-
-Route::group(['prefix' => 'volt/posts'], function () {
-    Volt::route('/', 'volt.posts.index');
-    Volt::route('/create', 'volt.posts.create');
-    Volt::route('/{post}/edit', 'volt.posts.edit');
-    Volt::route('/{post}', 'volt.posts.show');
+Route::name('volt.posts.')->prefix('volt/posts')->group(function () {
+    Volt::route('/', 'volt.posts.index')->name('index');
+    Volt::route('/create', 'volt.posts.create')->name('create');
+    Volt::route('/{post}/edit', 'volt.posts.edit')->name('edit');
+    Volt::route('/{post}', 'volt.posts.show')->name('show');
 });
