@@ -22,7 +22,7 @@ Route::name('posts.')->prefix('posts')->group(function () {
     Route::get('/', Posts\Index::class)->name('index');
     Route::get('/create', Posts\Create::class)->name('create');
     Route::get('/{post}/edit', Posts\Edit::class)->name('edit');
-    // Route::get('/{post}', Posts\Show::class)->name('show');
+    Route::get('/{post}', Posts\Show::class)->name('show');
 });
 
 Route::name('volt.posts.')->prefix('volt/posts')->group(function () {

@@ -69,7 +69,7 @@ class Edit extends Component
             $this->post->update(['image' => url("/storage/$url")]);
         }
 
-        $this->success('Post updated', redirectTo: route('volt.posts.show', $this->post));
+        $this->success('Post updated', redirectTo: route('posts.show', $this->post));
     }
 
     public function render()

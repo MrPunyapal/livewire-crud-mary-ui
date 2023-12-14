@@ -58,7 +58,7 @@ class Create extends Component
         $url = $this->image->store('posts', 'public');
         $post->update(['image' => url("/storage/$url")]);
 
-        $this->success('Post updated', redirectTo: route('volt.posts.show', $post));
+        $this->success('Post updated', redirectTo: route('posts.show', $post));
     }
 
     public function render(): mixed
