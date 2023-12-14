@@ -55,7 +55,7 @@ class Edit extends Component
         // TODO
         return [
             ['id' => FeaturedStatus::NOT_FEATURED, 'name' => 'No'],
-            ['id' => FeaturedStatus::FEATURED, 'name' => 'Yes']
+            ['id' => FeaturedStatus::FEATURED, 'name' => 'Yes'],
         ];
     }
 
@@ -74,10 +74,10 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.posts.edit',[
+        return view('livewire.posts.edit', [
             'categories' => Category::all(),
             'allTags' => Tag::all(),
-            'featured' => $this->featured()
+            'featured' => $this->featured(),
         ]);
     }
 }

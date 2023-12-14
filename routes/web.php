@@ -1,8 +1,8 @@
 <?php
 
+use App\Livewire\Posts;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
-use App\Livewire\Posts;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,6 @@ use App\Livewire\Posts;
 */
 
 Route::redirect('/', '/posts');
-
 
 Route::name('posts.')->prefix('posts')->group(function () {
     Route::get('/', Posts\Index::class)->name('index');

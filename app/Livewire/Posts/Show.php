@@ -29,6 +29,7 @@ class Show extends Component
         $post->delete();
         $this->success('Post deleted.', redirectTo: route('posts.index'));
     }
+
     public function render()
     {
         return view('livewire.posts.show');
