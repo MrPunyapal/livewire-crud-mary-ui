@@ -1,7 +1,4 @@
 <div>
-    {{-- The best athlete wants his opponent at his best. --}}
-</div>
-<div>
     {{-- IMAGE --}}
     <div class="h-[227px] mb-8 rounded-lg bg-base-300">
         <img src="{{ $post->image }}" class="object-cover h-full w-full rounded-lg" />
