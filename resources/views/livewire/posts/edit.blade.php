@@ -4,7 +4,7 @@ use App\Enums\FeaturedStatus;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Livewire\Attributes\Rule;
+use Livewire\Attributes\Validate;
 use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
 use Mary\Traits\Toast;
@@ -14,31 +14,31 @@ new class extends Component {
 
     public Post $post;
 
-    #[Rule('required|int')]
+    #[Validate('required|int')]
     public int $category_id;
 
-    #[Rule('required')]
+    #[Validate('required')]
     public string $title;
 
-    #[Rule('required')]
+    #[Validate('required')]
     public string $slug;
 
-    #[Rule('required')]
+    #[Validate('required')]
     public string $description;
 
-    #[Rule('required')]
+    #[Validate('required')]
     public string $body;
 
-    #[Rule('required|date')]
+    #[Validate('required|date')]
     public string $published_at;
 
-    #[Rule('required')]
+    #[Validate('required')]
     public bool $is_featured;
 
-    #[Rule('required')]
+    #[Validate('required')]
     public array $tags;
 
-    #[Rule('sometimes|nullable|image|max:1024')]
+    #[Validate('sometimes|nullable|image|max:1024')]
     public $coverImage;
 
     public function mount(): void
