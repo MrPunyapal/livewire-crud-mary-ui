@@ -24,7 +24,7 @@
             <div class="flex flex-nowrap gap-3">
                 <x-button wire:click="delete({{ $post->id }})" wire:confirm="Are you sure?" icon="o-trash"
                     class="btn-sm text-error" spinner />
-                <x-button link="{{ route('volt.posts.edit', $post) }}" icon="o-pencil" class="btn-sm" />
+                <x-button link="{{ route('posts.edit', $post) }}" icon="o-pencil" class="btn-sm" />
             </div>
             @endscope
         </x-table>

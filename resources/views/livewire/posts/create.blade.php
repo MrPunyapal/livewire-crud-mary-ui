@@ -21,7 +21,7 @@
             <x-textarea label="Body" id="post-body" wire:model="body" rows="8" />
 
             <x-slot:actions>
-                <x-button label="Cancel" link="{{route('volt.posts.index')}}" />
+                <x-button label="Cancel" link="{{route('posts.index')}}" />
                 <x-button label="Create post" type="submit" icon="o-paper-airplane" class="btn-primary"
                     spinner="save" />
             </x-slot:actions>
