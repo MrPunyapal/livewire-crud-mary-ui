@@ -1495,16 +1495,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.35.0",
+            "version": "v10.37.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "91ec2d92d2f6007e9084fe06438b99c91845da69"
+                "reference": "996375dd61f8c6e4ac262b57ed485655d71fcbdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/91ec2d92d2f6007e9084fe06438b99c91845da69",
-                "reference": "91ec2d92d2f6007e9084fe06438b99c91845da69",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/996375dd61f8c6e4ac262b57ed485655d71fcbdc",
+                "reference": "996375dd61f8c6e4ac262b57ed485655d71fcbdc",
                 "shasum": ""
             },
             "require": {
@@ -1693,7 +1693,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-12-05T14:50:33+00:00"
+            "time": "2023-12-13T20:10:58+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -3857,16 +3857,16 @@
         },
         {
             "name": "robsontenorio/mary",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/robsontenorio/mary.git",
-                "reference": "b2114b9135be455e904aa77301d5b4d101ef28f1"
+                "reference": "cc3380a604554c70519a78d635fa851bc8ee815d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robsontenorio/mary/zipball/b2114b9135be455e904aa77301d5b4d101ef28f1",
-                "reference": "b2114b9135be455e904aa77301d5b4d101ef28f1",
+                "url": "https://api.github.com/repos/robsontenorio/mary/zipball/cc3380a604554c70519a78d635fa851bc8ee815d",
+                "reference": "cc3380a604554c70519a78d635fa851bc8ee815d",
                 "shasum": ""
             },
             "require": {
@@ -3918,7 +3918,7 @@
             ],
             "support": {
                 "issues": "https://github.com/robsontenorio/mary/issues",
-                "source": "https://github.com/robsontenorio/mary/tree/1.10.0"
+                "source": "https://github.com/robsontenorio/mary/tree/1.11.0"
             },
             "funding": [
                 {
@@ -3926,7 +3926,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-13T00:49:46+00:00"
+            "time": "2023-12-14T01:53:49+00:00"
         },
         {
             "name": "symfony/console",
