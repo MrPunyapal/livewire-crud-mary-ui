@@ -19,8 +19,8 @@ Route::redirect('/', '/posts');
 // TODO: resourceful routes?
 
 Route::group(['prefix' => 'volt/posts'], function () {
-    Volt::route('/', 'posts.index');
-    Volt::route('/create', 'posts.create');
-    Volt::route('/{post}/edit', 'posts.edit');
-    Volt::route('/{post}', 'posts.show');
+    Volt::route('/', 'volt.posts.index');
+    Volt::route('/create', 'volt.posts.create');
+    Volt::route('/{post}/edit', 'volt.posts.edit');
+    Volt::route('/{post}', 'volt.posts.show');
 });
