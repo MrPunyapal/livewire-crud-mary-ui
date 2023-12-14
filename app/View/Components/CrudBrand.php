@@ -22,7 +22,7 @@ class CrudBrand extends Component
     public function render(): View|Closure|string
     {
         return <<<'blade'
-                <a href="/" wire:navigate>
+                <a href="{{Route::is('volt.*') ? route('volt.posts.index') : route('posts.index')}}" wire:navigate>
                     <div class="flex items-center">
                             <x-icon name="o-rocket-launch" class="w-6 text-purple-500" />
                             <span class="ml-2 text-3xl mr-3 bg-gradient-to-r from-purple-500 to-pink-300 bg-clip-text text-transparent font-bold">
