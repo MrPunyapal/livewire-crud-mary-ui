@@ -82,7 +82,8 @@ new class extends Component {
             </x-input>
         </x-slot:middle>
         <x-slot:actions>
-            <x-button label="Create" link="/volt/posts/create" icon="o-plus" class="btn-primary" responsive />
+            <x-button label="Create" link="{{route('volt.posts.create')}}" icon="o-plus" class="btn-primary"
+                responsive />
         </x-slot:actions>
     </x-header>
 

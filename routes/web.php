@@ -20,7 +20,7 @@ Route::redirect('/', '/posts');
 
 Route::name('posts.')->prefix('posts')->group(function () {
     Route::get('/', Posts\Index::class)->name('index');
-    // Route::get('/create', Posts\Create::class)->name('create');
+    Route::get('/create', Posts\Create::class)->name('create');
     // Route::get('/{post}/edit', Posts\Edit::class)->name('edit');
     // Route::get('/{post}', Posts\Show::class)->name('show');
 });
