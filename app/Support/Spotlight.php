@@ -29,7 +29,7 @@ class Spotlight
                     'name' => $post->title,
                     'description' => $post->category->name,
                     'avatar' => $post->image,
-                    'link' => "/posts/{$post->id}"
+                    'link' => "/posts/{$post->id}",
                 ];
             });
     }
@@ -43,10 +43,10 @@ class Spotlight
                 'name' => 'Create Post',
                 'description' => 'Create a new Post',
                 'icon' => $icon,
-                'link' => '/posts/create'
+                'link' => '/posts/create',
             ],
         ])->filter(function (array $item) use ($search) {
-            return str($item['name'] . $item['description'])
+            return str($item['name'].$item['description'])
                 ->lower()
                 ->contains(str($search)->lower());
         });

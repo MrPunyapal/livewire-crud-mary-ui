@@ -20,10 +20,8 @@
             <x-button @click.stop="$dispatch('mary-search-open')" icon="o-magnifying-glass" class="btn-ghost rounded-2xl btn-sm bg-base-200/70">
                 Search <kbd class="kbd kbd-xs">Cmd + /</kbd>
             </x-button>
-            <x-button
-                label="Posts"
-                link="{{Route::is('volt.*') ? route('volt.posts.index') : route('posts.index')}}"
-                icon="o-chat-bubble-bottom-center-text" class="btn-ghost btn-sm" />
+            <x-button label="Posts" link="{{Route::is('volt.*') ? route('volt.posts.index') : route('posts.index')}}" icon="o-chat-bubble-bottom-center-text"
+                      class="btn-ghost btn-sm" />
         </x-slot:actions>
     </x-nav>
 
