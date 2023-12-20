@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6fc05ce803255c42ff83908e18115dc",
+    "content-hash": "b09053632ed59a48d64c3d1dfeab146b",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -3857,16 +3857,16 @@
         },
         {
             "name": "robsontenorio/mary",
-            "version": "1.11.0",
+            "version": "1.13.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/robsontenorio/mary.git",
-                "reference": "cc3380a604554c70519a78d635fa851bc8ee815d"
+                "reference": "fd4d25cd2bbeb317d91350e414f15d8449d4c46e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robsontenorio/mary/zipball/cc3380a604554c70519a78d635fa851bc8ee815d",
-                "reference": "cc3380a604554c70519a78d635fa851bc8ee815d",
+                "url": "https://api.github.com/repos/robsontenorio/mary/zipball/fd4d25cd2bbeb317d91350e414f15d8449d4c46e",
+                "reference": "fd4d25cd2bbeb317d91350e414f15d8449d4c46e",
                 "shasum": ""
             },
             "require": {
@@ -3918,7 +3918,7 @@
             ],
             "support": {
                 "issues": "https://github.com/robsontenorio/mary/issues",
-                "source": "https://github.com/robsontenorio/mary/tree/1.11.0"
+                "source": "https://github.com/robsontenorio/mary/tree/1.13.2"
             },
             "funding": [
                 {
@@ -3926,7 +3926,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-14T01:53:49+00:00"
+            "time": "2023-12-20T21:22:21+00:00"
         },
         {
             "name": "symfony/console",
