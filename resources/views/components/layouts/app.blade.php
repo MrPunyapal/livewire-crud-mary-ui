@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +9,28 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200" x-data>
 
-<x-nav sticky>
-    <x-slot:brand>
-        <x-crud-brand />
-    </x-slot:brand>
-    <x-slot:actions>
-        <x-button @click.stop="$dispatch('mary-search-open')" icon="o-magnifying-glass" class="btn-ghost rounded-2xl btn-sm bg-base-200/70">
-            Search <kbd class="kbd kbd-xs">Cmd + /</kbd>
-        </x-button>
-        <x-button label="Posts" link="/posts" icon="o-chat-bubble-bottom-center-text" class="btn-ghost btn-sm" />
-    </x-slot:actions>
-</x-nav>
+<body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
 
-<x-main>
-    {{-- The `$slot` goes here --}}
-    <x-slot:content>
-        {{ $slot }}
-    </x-slot:content>
-</x-main>
+    <x-nav sticky>
+        <x-slot:brand>
+            <x-crud-brand />
+        </x-slot:brand>
+        <x-slot:actions>
+            <x-button label="Posts" link="{{Route::is('volt.*') ? route('volt.posts.index') : route('posts.index')}}"
+                icon="o-chat-bubble-bottom-center-text" class="btn-ghost btn-sm" />
+        </x-slot:actions>
+    </x-nav>
 
-{{-- TOAST AREA --}}
-<x-toast />
+    <x-main>
+        {{-- The `$slot` goes here --}}
+        <x-slot:content>
+            {{ $slot }}
+        </x-slot:content>
+    </x-main>
 
-{{-- SPOTLIGHT --}}
-<x-spotlight shortcut="meta.slash" search-text="Post title or category name ..." />
+    {{-- TOAST AREA --}}
+    <x-toast />
 </body>
+
 </html>
