@@ -8,13 +8,16 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
+<body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200" x-data>
 
 <x-nav sticky>
     <x-slot:brand>
         <x-crud-brand />
     </x-slot:brand>
     <x-slot:actions>
+        <x-button @click.stop="$dispatch('mary-search-open')" icon="o-magnifying-glass" class="btn-ghost rounded-2xl btn-sm bg-base-200/70">
+            Search <kbd class="kbd kbd-xs">Cmd + /</kbd>
+        </x-button>
         <x-button label="Posts" link="/posts" icon="o-chat-bubble-bottom-center-text" class="btn-ghost btn-sm" />
     </x-slot:actions>
 </x-nav>
@@ -28,5 +31,8 @@
 
 {{-- TOAST AREA --}}
 <x-toast />
+
+{{-- SPOTLIGHT --}}
+<x-spotlight shortcut="meta.slash" search-text="Post title or category name ..." />
 </body>
 </html>
