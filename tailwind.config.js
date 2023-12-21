@@ -13,9 +13,14 @@ export default {
         // Laravel paginator
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php'
     ],
-    safelist: [{
-        pattern: /badge-*/
-    }],
+    safelist: [
+        {
+            pattern: /badge-*/
+        },
+        {
+            pattern: /bg-yellow-*/
+        }
+    ],
     theme: {
         extend: {},
     },
